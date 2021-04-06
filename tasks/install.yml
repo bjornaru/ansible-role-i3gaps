@@ -27,18 +27,11 @@
     cmd: autoreconf --force --install
     creates: /usr/bin/i3
 
-- name: Remove build directory
-  file:
-    path: "{{ i3gaps_git_path }}/build"
-    state: absent
-  when: not i3.stat.exists
-
-- name: Re-create build directory
+- name: Prepare build directory
   file:
     path: "{{ i3gaps_git_path }}/build"
     state: directory
     mode: 0777
-  when: not i3.stat.exists
 
 - name: Run configure
   command:
