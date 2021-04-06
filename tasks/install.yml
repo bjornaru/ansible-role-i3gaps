@@ -20,7 +20,6 @@
     repo: https://www.github.com/Airblader/i3
     dest: '{{ i3gaps_git_path }}'
     version: '{{ i3gaps_version }}'
-  when: not i3.stat.exists
 
 - name: Configure (autoreconf)
   command:
